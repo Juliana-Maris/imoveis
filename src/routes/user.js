@@ -1,16 +1,25 @@
 'use strict';
-const mongoose = require('mongoose');
-const User = require('../models/user');
-const Collection = mongoose.model('User');
+const express = require('express');
+const router = express.Router();
+const controller = require('../controllers/user');
+const authService = require('../services/auth-service');
 
-exports.create = async (data) => {
-    return Collection.create(new User(data));
-};
+// router.post('/authenticate', async (req, res) => {
+//     await controller.authenticate()
+//
+// });
+// router.post('/refresh-token', async (req, res) => {
+//     authService.authorize, controller.refreshToken
+// });
+router.post('/', async (req, res) => {
 
-exports.list = async () => {
-    return Collection.find();
-}
+    const { body: { fullName, cpf, email, password, role } } = req
+    const user = { fullName, email, password, cpf, role }
+    return controller.create(req, res, user)
+});
 
-exports.authenticate = async ({ email, password }) => {
-    return Collection.findOne({ email, password });
-}
+router.get('/', async (req, res) => {
+    return controller.list(req, res)
+});
+
+module.exports = router;

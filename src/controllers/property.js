@@ -19,7 +19,7 @@ exports.create = async (req, res) => {
         await repository.create(property);
         res.status(201).send({ message: "Propriedade cadastrada com sucesso!" });
     } catch (e) {
-        res.status(500).send({ message: 'Falha ao cadastrar usuário.' });
+        res.status(500).send({ message: 'Falha ao cadastrar propriedade.' });
     }
 };
 

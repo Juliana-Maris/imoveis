@@ -2,16 +2,33 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/property');
-const authService = require('../services/auth-service');
+// const authService = require('../services/auth-service');
 
-router.get('/', controller.list);
-router.get('/:bedroom', controller.search);
 
 // router.post('/', authService.isAdmin, controller.create);
-router.post('/', controller.create);
+router.post('/', async (req, res) => {
+    return controller.create(req, res)
+});
+
 // router.put('/:id', authService.isAdmin, controller.update);
-router.put('/:id', controller.update);
+router.put('/:id', async (req, res) => {
+    return controller.update(req, res, req.params.id)
+});
+
+
 // router.delete('/', authService.isAdmin, controller.remove);
-router.delete('/', controller.remove);
+router.delete('/:id', async (req, res) => {
+    return controller.remove(req, res, req.params.id)
+});
+
+router.get('/', async (req, res) => {
+    return controller.list(req, res)
+});
+
+
+router.get('/:bedroom', async (req, res) => {
+    return controller.search(req, res)
+});
+
 
 module.exports = router;

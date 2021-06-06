@@ -45,5 +45,3 @@ exports.search = async (data) => {
 
     return Collection.find(property);
 }
-
-
