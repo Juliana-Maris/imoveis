@@ -1,6 +1,5 @@
 'use strict';
 const jwt = require('jsonwebtoken');
-
 // gera o token
 exports.generateToken = async (data) => {
     return jwt.sign(data, global.SALT_KEY, { expiresIn: '1d' });

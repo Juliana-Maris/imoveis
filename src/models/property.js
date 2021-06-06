@@ -19,12 +19,10 @@ const schema = new Schema({
         type: Number,
         required: true
     },
-
     bedroom: {
         type: Number,
         required: true
     },
-
     isAvailable: {
         type: Boolean,
         required: true

@@ -1,5 +1,5 @@
 {
-  "name": "node-imo",
+  "name": "imoveis",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "keywords": [],
   "author": "Juliana Maris Martinez",
   "license": "ISC",
-  "description": "Projeto descrever",
+  "description": "Projeto para consulta de imóveis",
   "dependencies": {
     "body-parser": "^1.19.0",
     "debug": "^4.3.1",
