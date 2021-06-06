@@ -6,8 +6,11 @@ const authService = require('../services/auth-service');
 const ValidationContract = require('../validators/file-validator');
 
 exports.create = async (req, res, next) => {
+
+    const { body: { fullName, cpf, email, password } } = req
+    console.log('fullName', fullName)
     let contract = new ValidationContract();
-    contract.hasMinLen(req.body.name, 3, 'O nome deve ter pelo menos 3 letras');
+    contract.hasMinLen(req.body.fullName, 3, 'O nome deve ter pelo menos 3 letras');
     contract.isEmail(req.body.email, 'Email inválido');
     contract.hasMinLen(req.body.password, 6, 'A senha deve ter pelo menos 6 letras');
 
