@@ -7,12 +7,10 @@ exports.create = async (data) => {
     return Collection.create(new User(data));
 };
 
-exports.authenticate = async ({ email, password }) => {
-    return User.findOne({ email, password });
-}
-exports.getById = async (id) => {
-    return User.findById(id);
-}
-exports.list = async (req, res) => {
+exports.list = async () => {
     return Collection.find();
+}
+
+exports.authenticate = async ({ email, password }) => {
+    return Collection.findOne({ email, password });
 }
