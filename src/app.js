@@ -5,13 +5,16 @@ const mongoose = require('mongoose');
 const config = require('./config')
 
 const app = express();
-mongoose.connect(config.connectionString);
+
 
 const indexRoute = require('./routes/index');
 const userRoute = require('./routes/user');
 const propertyRoute = require('./routes/property');
 
-app.use(bodyParser.urlencoded({ extended: false }));
+mongoose.connect(config.connectionString);
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');

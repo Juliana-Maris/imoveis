@@ -13,3 +13,6 @@ exports.authenticate = async ({ email, password }) => {
 exports.getById = async (id) => {
     return User.findById(id);
 }
+exports.list = async (req, res) => {
+    return Collection.find();
+}

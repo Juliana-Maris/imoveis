@@ -21,7 +21,7 @@ const schema = new Schema({
     },
     roles: [{
         type: String,
-        required: true,
+        required: false,
         enum: ['admin', 'user'],
         default: 'user'
     }]
