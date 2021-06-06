@@ -10,11 +10,13 @@ exports.create = async (req, res, next) => {
     contract.hasMinLen(req.body.name, 3, 'O nome deve ter pelo menos 3 letras');
     contract.isEmail(req.body.email, 'Email inválido');
     contract.hasMinLen(req.body.password, 6, 'A senha deve ter pelo menos 6 letras');
+
     // se os dados forem invalidos
     if (!contract.errorsisValid()) {
         res.status(400).send(contract.errors()).end();
         return;
     }
+
     try {
         await repository.create({
             name: req.body.name,
@@ -30,7 +32,7 @@ exports.create = async (req, res, next) => {
 };
 exports.authenticate = async (req, res, next) => {
     let contract = new ValidationContract();
-    contract.hasMinLen(req.body.name, 3, 'O nome deve ter pelo menos 3 letras');
+    //contract.hasMinLen(req.body.name, 3, 'O nome deve ter pelo menos 3 letras');
     contract.isEmail(req.body.email, 'Email inválido');
     contract.hasMinLen(req.body.password, 6, 'A senha deve ter pelo menos 6 letras');
 

@@ -8,8 +8,8 @@ exports.create = async (data) => {
 };
 
 exports.authenticate = async ({ email, password }) => {
-    return Collection.findOne({ email, password });
+    return User.findOne({ email, password });
 }
 exports.getById = async (id) => {
-    return Collection.findById(id);
+    return User.findById(id);
 }

@@ -1,44 +1,68 @@
-
 'use strict';
-const mongoose = require('mongose');
-const PropertyCollection = mongoose.model('Property');
+const mongoose = require('mongoose');
+const Collection = mongoose.model('Property');
+const Property = require('../models/property')
 
 exports.create = async (data) => {
-    var user = new User(data);
-    await PropertyCollection.save(user);
+    await Collection.create(new Property(data));
 }
 exports.getById = async (id) => {
-    return PropertyCollection.findById(id);
+    return Collection.findById(id);
 }
 exports.search = async (data) => {
     const property = {}
 
-    if (data.cep) { property.cep = data.cep }
-    if (data.number) { property.number = data.number }
-    if (data.additionalData) { property.additionalData = data.additionalData }
-    if (data.rent) { property.rent = data.rent }
-    if (data.bedroom) { property.bedroom = data.bedroom }
-    if (data.isAvailable) { property.isAvailable = data.isAvailable }
+    if (data.cep) {
+        property.cep = data.cep
+    }
+    if (data.number) {
+        property.number = data.number
+    }
+    if (data.additionalData) {
+        property.additionalData = data.additionalData
+    }
+    if (data.rent) {
+        property.rent = data.rent
+    }
+    if (data.bedroom) {
+        property.bedroom = data.bedroom
+    }
+    if (data.isAvailable) {
+        property.isAvailable = data.isAvailable
+    }
 
-    return PropertyCollection.find(property);
+    return Collection.find(property);
 }
 exports.list = async () => {
-    return PropertyCollection.find();
+    return Collection.find();
 }
 exports.update = async (id, data) => {
     const property = {}
 
-    if (data.cep) { property.cep = data.cep }
-    if (data.number) { property.number = data.number }
-    if (data.additionalData) { property.additionalData = data.additionalData }
-    if (data.rent) { property.rent = data.rent }
-    if (data.bedroom) { property.bedroom = data.bedroom }
-    if (data.isAvailable) { property.isAvailable = data.isAvailable }
+    if (data.cep) {
+        property.cep = data.cep
+    }
+    if (data.number) {
+        property.number = data.number
+    }
+    if (data.additionalData) {
+        property.additionalData = data.additionalData
+    }
+    if (data.rent) {
+        property.rent = data.rent
+    }
+    if (data.bedroom) {
+        property.bedroom = data.bedroom
+    }
+    if (data.isAvailable) {
+        property.isAvailable = data.isAvailable
+    }
 
-    await PropertyCollection.findByIdAndUpdate(id, {
+    await Collection.findByIdAndUpdate(id, {
         $set: property
     });
 }
 exports.remove = async (id) => {
-    await PropertyCollection.findOneAndRemove(id);
+    await Collection.findOneAndRemove(id);
 }
+
