@@ -2,7 +2,6 @@
 const md5 = require('md5');
 const repository = require('../repositories/property');
 
-
 exports.create = async (req, res) => {
     const { cep, number, additionalData, rent, bedroom, isAvailable } = req.body;
     const property = {
@@ -15,7 +14,6 @@ exports.create = async (req, res) => {
         password: md5(req.body.password + global.SALT_KEY),
         roles: ["user"]
     };
-
     try {
         await repository.create(property);
         res.status(201).send({ message: "Propriedade cadastrada com sucesso!" });
@@ -43,7 +41,6 @@ exports.remove = async (req, res, id) => {
         res.status(500).send({ message: 'Falha ao processar sua requisição!' });
     }
 };
-
 exports.list = async (req, res) => {
     try {
         const properties = await repository.list();
@@ -52,7 +49,6 @@ exports.list = async (req, res) => {
         res.status(500).send({ message: 'Falha ao processar sua requisição!' });
     }
 };
-
 exports.search = async (req, res, next) => {
     try {
         const { rent, isAvailable, cep, number, additionalData, bedroom } = req.params

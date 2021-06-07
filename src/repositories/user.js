@@ -10,7 +10,3 @@ exports.create = async (data) => {
 exports.list = async () => {
     return Collection.find();
 }
-
-exports.authenticate = async ({ email, password }) => {
-    return Collection.findOne({ email, password });
-}
