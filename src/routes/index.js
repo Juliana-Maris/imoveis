@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
     res.status(200).send({
-        title: "Virtual Imóveis",
+        title: "Clic Imóveis",
         version: "0.0.1"
     });
 });

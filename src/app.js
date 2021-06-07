@@ -2,7 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const config = require('./config')
+const config = require('./config');
 
 const app = express();
 
@@ -13,7 +13,7 @@ const propertyRoute = require('./routes/property');
 mongoose.connect(config.connectionString);
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');

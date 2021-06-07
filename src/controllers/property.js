@@ -2,6 +2,7 @@
 const md5 = require('md5');
 const repository = require('../repositories/property');
 
+
 exports.create = async (req, res) => {
     const { cep, number, additionalData, rent, bedroom, isAvailable } = req.body;
     const property = {

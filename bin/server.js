@@ -1,7 +1,7 @@
 'use strict'
 const http = require('http');
 const app = require('../src/app');
-const debug = require('debug')('imoveis:server'); //nodeimo:server ???
+const debug = require('debug')('imoveis:server');
 
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);

@@ -18,7 +18,7 @@ exports.remove = async (id) => {
 }
 
 exports.list = async () => {
-    return Collection.find();
+    return Collection.find(); //é find, mudar para findAll??
 }
 
 exports.search = async (data) => {
